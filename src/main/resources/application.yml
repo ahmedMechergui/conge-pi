@@ -1,0 +1,64 @@
+spring:
+  profiles:
+    active: dev
+  datasource:
+    type: com.mysql.cj.jdbc.MysqlDataSource
+    username: root
+    password: conge
+    url: jdbc:mysql://localhost:3307/conge?createDatabaseIfNotExist=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jackson:
+    default-property-inclusion: non_null
+  config:
+    import: optional:file:.env[.properties]
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        enable_lazy_load_no_trans: true
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 215MB
+      file-size-threshold: 2KB
+
+
+management:
+  endpoints:
+    web:
+      base-path: /management
+      exposure:
+        include: [ '*' ]
+
+server:
+  servlet:
+    context-path: /api
+
+conge:
+  security:
+    token:
+      secret-key: PLACE_HOLDER_KEY_PLACE_HOLDER_KEY # SECURITY_SECRET_KEY
+      access-token-expiration: 30 # minutes
+      refresh-token-expiration: 262800 # minutes -> 6 months
+  sms:
+    enabled: true
+    app-identifier: YLxu1Cu1rro
+    api-url: https://www.tunisiesms.tn/client/Api/Api.aspx
+    api-key: yDsirmd31t/-/fpktbJLI4rkXWdn7oTU880Qe38RVL/-/paFJ/kxjj4/-/LcSXTHoSaZ9neibHYWVY3yRKRLncngPuslzWoO5B88hVpo6pG1Mr1IM= # SMS_SENDER
+    sender: Tbiby.Tn
+  verification-code:
+    max-attempts: 5
+    expiration-duration: 5 # 5 minutes
+    code-digits: 4 # number between 1 and 10
+  file:
+    # See ResourcesWebConfig if you want to change base upload location
+    base-dir: ./src/main
+    default-path: /uploads/public/files/
+
+  data-loader:
+    enabled: true
+    factor: 5
