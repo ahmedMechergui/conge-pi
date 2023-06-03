@@ -24,13 +24,6 @@ public class User extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.ROLE_USER;
 
-    @OneToOne(mappedBy = "user", cascade = ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-    @PrimaryKeyJoinColumn
-    private Client client;
-
-    @OneToOne(mappedBy = "user", cascade = ALL, fetch = FetchType.EAGER, orphanRemoval = true)
-    @PrimaryKeyJoinColumn
-    private DeliveryMan deliveryMan;
 
     @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "validation_code_id")

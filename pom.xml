@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>tn</groupId>
-    <artifactId>vapex</artifactId>
+    <artifactId>conge</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>vapex</name>
-    <description>vapex</description>
+    <name>congex</name>
+    <description>conge</description>
     <properties>
         <java.version>11</java.version>
         <sonar.qualitygate.wait>true</sonar.qualitygate.wait>

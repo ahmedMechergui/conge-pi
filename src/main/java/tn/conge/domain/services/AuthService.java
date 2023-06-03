@@ -31,7 +31,7 @@ public class AuthService {
         if (userOptional.isEmpty()) {
             user = new User();
             user.setPhone(phone);
-            user.setRole(UserRole.ROLE_CLIENT);
+            user.setRole(UserRole.ROLE_USER);
         }else {
             user = userOptional.get();
             this.checkIfUserBanned(user);

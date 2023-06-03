@@ -17,7 +17,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="conge" />
-          <factory-entry name="entityManagerFactory" value="47754d7b-8db7-4e60-9526-3b271d9c41cd" />
+          <factory-entry name="entityManagerFactory" value="37465375-ad13-49d3-be37-03793ec2957b" />
           <factory-entry name="vapex" />
         </datasource-mapping>
         <naming-strategy-map />
