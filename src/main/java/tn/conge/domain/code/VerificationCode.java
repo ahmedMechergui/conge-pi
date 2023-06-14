@@ -8,7 +8,6 @@ import org.checkerframework.checker.index.qual.Positive;
 import tn.conge.core.fetcher.FetchedBean;
 import tn.conge.core.fetcher.UseFetchedBeans;
 import tn.conge.core.properties.CongeProperties;
-import tn.conge.domain.entitites.BaseEntity;
 
 import javax.persistence.Column;
 import javax.persistence.EnumType;

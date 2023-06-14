@@ -2,9 +2,6 @@ package tn.conge.domain.api.mappers;
 
 import org.mapstruct.*;
 import tn.conge.domain.api.dtos.UserDto;
-import tn.conge.domain.entitites.BaseEntity;
-import tn.conge.domain.entitites.Client;
-import tn.conge.domain.entitites.DeliveryMan;
 import tn.conge.domain.entitites.User;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

@@ -1,4 +1,4 @@
-package tn.conge.domain.entitites;
+package tn.conge.domain.Entities;
 
 import lombok.Getter;
 import lombok.Setter;
