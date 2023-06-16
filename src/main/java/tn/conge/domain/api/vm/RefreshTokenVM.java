@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import tn.conge.domain.validators.token.Token;
+
 
 
 @Getter
@@ -12,6 +12,6 @@ import tn.conge.domain.validators.token.Token;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RefreshTokenVM {
-    @Token
+    //@Token
     private String refreshToken;
 }

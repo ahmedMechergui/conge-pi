@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import tn.conge.domain.Entities.BaseEntity;
 import tn.conge.domain.storage.enums.FileUrlType;
 
 import javax.persistence.Entity;

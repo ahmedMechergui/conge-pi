@@ -1,0 +1,11 @@
+{
+  "groups": [
+    {
+      "name": "conge",
+      "type": "tn.conge.core.properties.CongeProperties",
+      "sourceType": "tn.conge.core.properties.CongeProperties"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

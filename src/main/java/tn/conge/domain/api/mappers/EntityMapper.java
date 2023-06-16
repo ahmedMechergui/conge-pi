@@ -1,6 +1,7 @@
 package tn.conge.domain.api.mappers;
 
 import org.mapstruct.MappingTarget;
+import tn.conge.domain.Entities.BaseEntity;
 
 import java.util.List;
 

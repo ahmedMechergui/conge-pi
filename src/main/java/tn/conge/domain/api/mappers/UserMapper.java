@@ -1,15 +1,18 @@
 package tn.conge.domain.api.mappers;
 
 import org.mapstruct.*;
+import tn.conge.domain.Entities.BaseEntity;
+import tn.conge.domain.Entities.Client;
+import tn.conge.domain.Entities.User;
 import tn.conge.domain.api.dtos.UserDto;
-import tn.conge.domain.entitites.User;
 
-@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+
+/*@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = "spring", nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface UserMapper extends EntityMapper<UserDto, User> {
 
     @Mappings(value = {
-            @Mapping(source = ".", target = User.Fields.deliveryMan, resultType = DeliveryMan.class),
-            @Mapping(source = ".", target = User.Fields.client, resultType = Client.class),
+           // @Mapping(source = ".", target = User.Fields.deliveryMan, resultType = DeliveryMan.class),
+            //@Mapping(source = ".", target = User.Fields.client, resultType = Client.class),
             @Mapping(target = BaseEntity.Fields.id, ignore = true)
     })
     User toEntity(UserDto userDto);
@@ -26,4 +29,4 @@ public interface UserMapper extends EntityMapper<UserDto, User> {
     })
     @InheritConfiguration(name = "toEntity")
     User partialUpdate(UserDto userDto, @MappingTarget User user);
-}
+}*/
