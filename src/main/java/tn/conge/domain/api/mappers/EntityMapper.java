@@ -5,7 +5,7 @@ import tn.conge.domain.entitites.BaseEntity;
 
 import java.util.List;
 
-public interface EntityMapper<D, E extends BaseEntity> {
+public interface EntityMapper<E extends BaseEntity,D> {
 
     E toEntity(D dto);
 

@@ -5,8 +5,8 @@ import lombok.Getter;
 @Getter
 public enum UserAuthority {
     ADMIN("ADMIN"),
-    CLIENT("CLIENT"),
-    DELIVERY_MAN("DELIVERY_MAN"),
+    EMPLOYEE("EMPLOYEE"),
+    HUMAN_RESOURCES("HUMAN_RESOURCES"),
     USER("USER");
 
     String authority;

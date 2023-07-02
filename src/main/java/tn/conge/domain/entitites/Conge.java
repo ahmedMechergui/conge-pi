@@ -12,10 +12,8 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Conge {
-    @Id
-    @GeneratedValue
-    private Long idConge;
+public class Conge extends BaseEntity{
+
     private String employe;
     private LocalDate dateDebut;
     private LocalDate dateFin;

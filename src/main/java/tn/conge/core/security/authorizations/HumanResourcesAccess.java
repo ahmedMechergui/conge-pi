@@ -9,6 +9,6 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@PreAuthorize("hasAuthority('DELIVERY_MAN')")
-public @interface DeliveryManAccess {
+@PreAuthorize("hasAuthority('HUMAN_RESOURCES')")
+public @interface HumanResourcesAccess {
 }

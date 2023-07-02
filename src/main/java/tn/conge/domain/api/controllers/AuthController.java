@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import tn.conge.core.security.AuthFacade;
+import tn.conge.core.security.authorizations.UserAccess;
 import tn.conge.core.security.jwt.LoginVM;
 import tn.conge.domain.api.dtos.UserDto;
 import tn.conge.domain.api.mappers.UserMapper;
@@ -41,6 +42,7 @@ public class AuthController {
     }
 
     @GetMapping("me")
+    @UserAccess
     public ResponseEntity<UserDto> getAuthenticatedUser() {
         User user = this.authFacade.getAuthenticated();
         this.authService.checkIfUserBanned(user);
