@@ -1,5 +1,8 @@
 package tn.conge.domain.entitites;
 
+import lombok.Getter;
+import lombok.Setter;
+import tn.conge.domain.enums.ContractStatus;
 import tn.conge.domain.enums.ContractType;
 import tn.conge.domain.storage.CustomFile;
 
@@ -10,12 +13,14 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Getter
+@Setter
 public class Contract extends BaseEntity {
 
     @Column(nullable = false)
     private String contractName;
 
-    @ManyToOne
+    @OneToOne
     private Employee employee;
 
     @ManyToOne
@@ -31,16 +36,16 @@ public class Contract extends BaseEntity {
 
     @Enumerated(EnumType.STRING)
     @Column
-    private ContractType status; // ContractStatus is an enum type with values such as 'ACTIVE', 'EXPIRED', etc.
+    private ContractStatus status;
 
     @Enumerated(EnumType.STRING)
     @Column
-    private ContractType type; // ContractType is an enum with values such as 'FULL_TIME', 'PART_TIME', etc.
+    private ContractType type;
 
 
-    @Lob
-    @Column
-    private String notes;
+    @ElementCollection(fetch = FetchType.EAGER)
+    @CollectionTable(name = "notes", joinColumns = @JoinColumn(name = "note_id"))
+    private List<String> notes;
 
     @OneToOne
     @JoinColumn

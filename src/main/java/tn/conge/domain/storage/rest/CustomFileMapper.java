@@ -6,6 +6,6 @@ import tn.conge.domain.api.mappers.EntityMapper;
 import tn.conge.domain.storage.CustomFile;
 
 @Mapper(componentModel = "spring")
-public interface CustomFileMapper extends EntityMapper<CustomFileDto, CustomFile> {
+public interface CustomFileMapper extends EntityMapper<CustomFile, CustomFileDto> {
     CustomFileMapper INSTANCE = Mappers.getMapper(CustomFileMapper.class);
 }

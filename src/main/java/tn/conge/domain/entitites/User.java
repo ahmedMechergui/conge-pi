@@ -10,22 +10,28 @@ import tn.conge.domain.code.ValidationCode;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-import static javax.persistence.CascadeType.ALL;
-
 @Entity
 @Getter
 @Setter
 @FieldNameConstants
+@Table(name = "user", indexes = {
+        @Index(name = "idx_user_phone", columnList = "phone"), @Index(name = "idx_user_email", columnList = "email")
+})
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class User extends BaseEntity {
     @Column(unique = true, updatable = false, nullable = false)
     @NotNull
     private String phone;
 
+    @Column(unique = true, updatable = false, nullable = false)
+    @NotNull
+    private String email;
+
     @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.ROLE_USER;
 
 
-    @OneToOne(cascade = CascadeType.ALL,orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "validation_code_id")
     private ValidationCode validationCode;
 

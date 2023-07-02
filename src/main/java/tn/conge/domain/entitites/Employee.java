@@ -10,22 +10,19 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Employee {
+@DiscriminatorValue("EMPLOYEE")
+public class Employee extends User {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long employeeId;
-
-    @Column(name = "first_name", nullable = false)
+    @Column(nullable = false)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false)
+    @Column(nullable = false)
     private String lastName;
 
-    @Column(name = "email", nullable = false, unique = true)
-    private String email;
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
     private List<Conge> conges;
 
+    @OneToOne
+    private Contract contract;
 }

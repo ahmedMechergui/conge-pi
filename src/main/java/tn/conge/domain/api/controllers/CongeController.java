@@ -1,5 +1,6 @@
 package tn.conge.domain.api.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -13,21 +14,18 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/conges")
+@RequiredArgsConstructor
 public class CongeController {
 
-    @Autowired
-    private CongeRepository congeRepository;
 
-    private CongeService congeService;
+    private final CongeRepository congeRepository;
 
-    public CongeController(CongeService congeService) {
-        this.congeService = congeService;
-    }
+    private final CongeService congeService;
 
     @GetMapping("/employee/{employeeId}")
     public List<Conge> getCongesByEmployee(@PathVariable Long employeeId) {
         Employee employee = new Employee();
-        employee.setEmployeeId(employeeId);
+        employee.setId(employeeId);
         return congeService.getCongesByEmployee(employee);
     }
 

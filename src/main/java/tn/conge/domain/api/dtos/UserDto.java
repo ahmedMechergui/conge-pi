@@ -1,5 +1,8 @@
 package tn.conge.domain.api.dtos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldNameConstants;
@@ -16,6 +19,7 @@ import java.io.Serializable;
 @Setter
 @FieldNameConstants
 public class UserDto implements Serializable {
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
     private String phone;
     private UserRole role = UserRole.ROLE_USER;
