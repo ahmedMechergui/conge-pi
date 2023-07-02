@@ -11,6 +11,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import static javax.persistence.CascadeType.ALL;
+import lombok.*;
 
 @Entity
 @Getter
@@ -38,6 +39,10 @@ public class User extends BaseEntity {
 
     @Column
     private boolean banned = false;
+
+    @ManyToOne
+    @JoinColumn(name = "equipe_id")
+    private Equipe equipe;
 
     @Override
     public boolean equals(Object o) {
