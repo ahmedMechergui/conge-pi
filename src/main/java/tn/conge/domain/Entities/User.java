@@ -15,7 +15,7 @@ import java.util.Set;
                 @UniqueConstraint(columnNames = "email")
         })
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-public class User extends BaseEntity {
+public class User  {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
