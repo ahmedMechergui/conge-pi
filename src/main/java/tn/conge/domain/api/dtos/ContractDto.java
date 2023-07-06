@@ -21,8 +21,7 @@ public class ContractDto implements Serializable {
     private final String contractName;
     private final EmployeeDto employee;
     private final EmployeeDto writtenBy;
-    private final Date startDate;
-    private final Date endDate;
+    private final DatePeriodDto period;
     private final ContractStatus status;
     private final ContractType type;
     private final List<String> notes;

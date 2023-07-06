@@ -2,6 +2,7 @@ package tn.conge.domain.entitites;
 
 import lombok.Getter;
 import lombok.Setter;
+import tn.conge.domain.embeddables.DatePeriod;
 import tn.conge.domain.enums.ContractStatus;
 import tn.conge.domain.enums.ContractType;
 import tn.conge.domain.storage.CustomFile;
@@ -62,6 +63,6 @@ public class Contract extends BaseEntity {
     @Lob
     @Column
     private String signature; // Electronic signature
-    @Column
-    private Period trialPeriod;
+    @Embedded
+    private DatePeriod period;
 }
