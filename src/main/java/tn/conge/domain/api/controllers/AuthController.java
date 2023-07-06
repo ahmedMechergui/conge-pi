@@ -11,6 +11,7 @@ import tn.conge.domain.api.mappers.UserMapper;
 import tn.conge.domain.api.vm.JWTToken;
 import tn.conge.domain.api.vm.PhoneVM;
 import tn.conge.domain.api.vm.RefreshTokenVM;
+import tn.conge.domain.api.vm.RegisterVM;
 import tn.conge.domain.entitites.User;
 import tn.conge.domain.services.AuthService;
 
@@ -27,7 +28,13 @@ public class AuthController {
 
     @PostMapping("login")
     public ResponseEntity<Void> loginOrRegister(@RequestBody @Valid PhoneVM phoneVM) {
-        this.authService.loginOrRegister(phoneVM.getPhone());
+        this.authService.login(phoneVM.getPhone());
+        return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("register")
+    public ResponseEntity<Void> loginOrRegister(@RequestBody @Valid RegisterVM registerVM) {
+        this.authService.register(registerVM.getPhone(), registerVM.getEmail(), registerVM.getFirstName(), registerVM.getLastName(), registerVM.getRole());
         return ResponseEntity.ok().build();
     }
 
