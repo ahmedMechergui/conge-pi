@@ -14,14 +14,14 @@ import java.util.Set;
  */
 @Data
 public class ReplacementRequestDto implements Serializable {
-    private final Date createdAt;
-    private final Date updatedAt;
-    private final Long id;
-    private final String position;
-    private final Set<String> skills;
-    private final ReplacementRequestStatus status;
-    private final DatePeriodDto period;
-    private final List<EmployeeDto> potentialCandidates;
-    private final EmployeeDto replacedEmployee;
-    private final ReplacementDto replacement;
+    private Date createdAt;
+    private Date updatedAt;
+    private Long id;
+    private String position;
+    private Set<String> skills;
+    private ReplacementRequestStatus status = ReplacementRequestStatus.PENDING;
+    private DatePeriodDto period;
+    private List<EmployeeDto> potentialCandidates;
+    private EmployeeDto replacedEmployee;
+    private ReplacementDto replacement;
 }

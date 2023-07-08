@@ -30,7 +30,7 @@ public class ReplacementRequest extends BaseEntity {
     @ManyToMany
     private List<Employee> potentialCandidates;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Employee replacedEmployee;
 
     @OneToOne(cascade = CascadeType.ALL)

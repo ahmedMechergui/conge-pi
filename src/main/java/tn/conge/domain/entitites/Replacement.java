@@ -1,12 +1,13 @@
 package tn.conge.domain.entitites;
 
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
-import tn.conge.domain.embeddables.DatePeriod;
 import tn.conge.domain.enums.ReplacementStatus;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 @Getter

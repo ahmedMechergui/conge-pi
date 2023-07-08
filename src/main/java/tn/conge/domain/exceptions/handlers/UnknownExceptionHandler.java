@@ -18,7 +18,7 @@ public class UnknownExceptionHandler extends CustomExceptionHandler<Exception> {
     @Override
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ExceptionResponse> handle(Exception exception) {
-        log.info("Exception resolved: ",exception);
+        log.error("Exception resolved: ",exception);
         return super.forgeCustomExceptionResponse(new UnknownException());
     }
 }

@@ -23,5 +23,5 @@ public class CongeDto implements Serializable {
     private final Boolean decision;
     private final Long nbrjours;
     private final TypeConge typeConge;
-    private final EmployeeDto employeeDto;
+    private final EmployeeDto employee;
 }

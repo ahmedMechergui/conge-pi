@@ -27,13 +27,6 @@ public class Contract extends BaseEntity {
     @ManyToOne
     private Employee writtenBy;
 
-    @Temporal(TemporalType.DATE)
-    @Column
-    private Date startDate;
-
-    @Temporal(TemporalType.DATE)
-    @Column
-    private Date endDate;
 
     @Enumerated(EnumType.STRING)
     @Column

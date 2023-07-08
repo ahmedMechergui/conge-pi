@@ -27,7 +27,8 @@ public class ReplacementController {
     @PostMapping("")
     public ResponseEntity<ReplacementRequestDto> submitReplacementRequest(@RequestBody ReplacementRequestDto replacementRequestDto) {
         ReplacementRequest replacementRequest = this.replacementRequestMapper.toEntity(replacementRequestDto);
-        ReplacementRequestDto savedReplacementRequestDto = this.replacementRequestMapper.toDto(this.replacementRequestService.save(replacementRequest));
+        ReplacementRequest save = this.replacementRequestService.save(replacementRequest);
+        ReplacementRequestDto savedReplacementRequestDto = this.replacementRequestMapper.toDto(save);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedReplacementRequestDto);
     }
 
@@ -60,6 +61,12 @@ public class ReplacementController {
     @PostMapping("refuse")
     public ResponseEntity<Void> refuseReplacement(@RequestBody ReplacementVM replacementVM) {
         this.replacementRequestService.refuseReplacementRequest(replacementVM.getReplacementRequestId(), replacementVM.getEmployeeId());
+        return ResponseEntity.ok().build();
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable Long id){
+        this.replacementRequestService.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
