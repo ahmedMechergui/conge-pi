@@ -37,11 +37,10 @@ public class Contract extends BaseEntity {
     private ContractType type;
 
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "notes", joinColumns = @JoinColumn(name = "note_id"))
-    private List<String> notes;
+    @Lob
+    private String notes;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private CustomFile content; // Usually a PDF
 
@@ -53,9 +52,9 @@ public class Contract extends BaseEntity {
     )
     private List<CustomFile> relatedDocuments = new ArrayList<>();
 
-    @Lob
-    @Column
-    private String signature; // Electronic signature
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
+    private CustomFile signature; // Electronic signature
     @Embedded
     private DatePeriod period;
 }
