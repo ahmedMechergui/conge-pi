@@ -24,7 +24,8 @@ public class ContractDto implements Serializable {
     private final DatePeriodDto period;
     private final ContractStatus status;
     private final ContractType type;
-    private final List<String> notes;
+    private final String notes;
     private final CustomFileDto content;
+    private final CustomFileDto signature;
     private final List<CustomFileDto> relatedDocuments;
 }

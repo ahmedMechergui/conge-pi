@@ -8,9 +8,7 @@ import tn.conge.domain.enums.ContractType;
 import tn.conge.domain.storage.CustomFile;
 
 import javax.persistence.*;
-import java.time.Period;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -21,19 +19,11 @@ public class Contract extends BaseEntity {
     @Column(nullable = false)
     private String contractName;
 
-    @OneToOne
+    @OneToOne()
     private Employee employee;
 
-    @ManyToOne
+    @ManyToOne()
     private Employee writtenBy;
-
-    @Temporal(TemporalType.DATE)
-    @Column
-    private Date startDate;
-
-    @Temporal(TemporalType.DATE)
-    @Column
-    private Date endDate;
 
     @Enumerated(EnumType.STRING)
     @Column
@@ -44,11 +34,10 @@ public class Contract extends BaseEntity {
     private ContractType type;
 
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name = "notes", joinColumns = @JoinColumn(name = "note_id"))
-    private List<String> notes;
+    @Lob
+    private String notes;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn
     private CustomFile content; // Usually a PDF
 
@@ -60,9 +49,9 @@ public class Contract extends BaseEntity {
     )
     private List<CustomFile> relatedDocuments = new ArrayList<>();
 
-    @Lob
-    @Column
-    private String signature; // Electronic signature
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn
+    private CustomFile signature; // Electronic signature
     @Embedded
     private DatePeriod period;
 }
